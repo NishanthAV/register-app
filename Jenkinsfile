@@ -4,7 +4,7 @@ pipeline {
         jdk 'Java17'
         maven 'Maven3'
     }
-  stages{
+    stages{
         stage("Cleanup Workspace"){
                 steps {
                 cleanWs()
@@ -16,7 +16,7 @@ pipeline {
                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/NishanthAV/register-app'
                 }
         }
-    stage("Build Application"){
+       stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
